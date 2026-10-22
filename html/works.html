@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&family=Shippori+Mincho:wght@400;600&family=Yuji+Boku&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <title>Works | 上田 凌雅</title>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html">R. UEDA</a>
+      <button class="menu-btn" aria-expanded="false" aria-label="メニュー">MENU</button>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="works.html" aria-current="page">Works</a>
+        <a href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <h1 class="page-title reveal">Works</h1>
+
+    <article class="card reveal">
+      <h2>book_shelf</h2>
+      <p>本のレビューを投稿し、コメント・いいねで交流できるWebアプリ</p>
+      <dl class="spec">
+        <dt>機能</dt>
+        <dd>レビュー投稿 / コメント / いいね / 一覧・集計表示</dd>
+        <dt>技術</dt>
+        <dd>PHP、Laravel、MySQL、phpMyAdmin、Docker</dd>
+        <dt>担当</dt>
+        <dd>バックエンドの実装</dd>
+      </dl>
+      <p class="note">resources(フロントエンド)は完成品として提供していただきました。</p>
+
+      <h3>工夫・苦労した点</h3>
+
+      <p>
+        今回初めて要件定義書をもとにしたシステム設計に挑戦しましたが、設計の難しさを実感するとともに、開発の進め方を見直すきっかけとなりました。当初は指定された機能を実装することに意識が向きがちで、設計段階で各機能の依存関係や、どの順序でコーディングを進めるべきかを十分に整理できていませんでした。そのため、実装を進める中で作業の順序に迷うことがあり、事前に開発手順を明確にしておくことの重要性を学びました。
+      </p>
+      <p>
+        また、設計を進める中で「クライアントは何に困っていて、この機能でどのような課題を解決したいのか」という本質的なニーズを理解することの大切さにも気づきました。そこで、画面や機能を作る前に、利用者や利用シーン、権限などを整理し、実際の運用で起こり得る重複登録や誤操作なども想定しながら、データベースの制約やエラーハンドリングについて検討しました。
+      </p>
+      <p>
+        この経験を通じて、要件を満たすだけでなく、実装の順序や機能間の関係性まで考慮して設計することの重要性を学びました。今後は、コーディングを始める前に開発手順や優先順位を明確にし、課題を一つずつ整理しながら、効率的で保守性の高い開発を目指していきます。
+      </p>
+      <p style="margin-top:28px">
+      <div class="images">
+        <img src="../images/bookShelf1.png" alt="本レビューアプリ" class="app_image">
+        <img src="../images/bookShelf2.png" alt="本レビューアプリ" class="app_image">
+      </div>
+
+      <a class="btn" href="https://github.com/ryoga613/bookshelf_app">GitHub</a>
+      <a class="btn" rel="noopener noreferrer">Demo</a>
+      </p>
+    </article>
+  </main>
+  <footer class="site-footer">&copy; 2026 Ueda Ryoga</footer>
+  <script src="../script.js" defer></script>
+</body>
+
+</html>

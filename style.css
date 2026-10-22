@@ -1,0 +1,357 @@
+/* ===== 色・フォント ===== */
+:root {
+  --fg: #e8e8e8;
+  --sub: #a0a0a0;
+  --line: #333;
+  --mincho: 'Shippori Mincho', 'Noto Serif JP', 'Hiragino Mincho ProN', serif;
+  --brush: 'Yuji Boku', 'Shippori Mincho', serif;
+  /* 名前用の筆文字 */
+  --en: 'Oswald', 'Arial Narrow', sans-serif;
+  /* 英字 */
+
+  /* ★ 背景写真に差し替えるときは、下の行を次のように変えます */
+  --photo: url('images/bg.jpg');
+  /* --photo: url('images/bg2.jpg'); */
+  /* --photo: url('images/bg3.jpg'); */
+  /* --photo: url('images/bg4.jpg'); */
+
+  /* --photo: linear-gradient(135deg, #3c3c3c, #0b0b0b 70%); */
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  font-family: var(--mincho);
+  color: var(--fg);
+  line-height: 1.9;
+  min-height: 100vh;
+  /* 写真の上に暗い膜を重ねて、文字を読みやすくする */
+  background-image: linear-gradient(rgba(0, 0, 0, .55), rgba(0, 0, 0, .8)), var(--photo);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+a {
+  color: inherit;
+}
+
+.wrap {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ===== ヘッダー ===== */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(0, 0, 0, .55);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--line);
+}
+
+.site-header .wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+}
+
+.brand {
+  font-family: var(--en);
+  letter-spacing: .2em;
+  text-decoration: none;
+}
+
+.nav {
+  display: flex;
+  gap: 28px;
+  font-family: var(--en);
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  font-size: .9rem;
+}
+
+.nav a {
+  text-decoration: none;
+  color: var(--sub);
+  padding: 4px 0;
+  border-bottom: 1px solid transparent;
+}
+
+.nav a:hover,
+.nav a[aria-current="page"] {
+  color: var(--fg);
+  border-bottom-color: var(--fg);
+}
+
+.menu-btn {
+  display: none;
+  background: none;
+  border: 1px solid var(--line);
+  color: var(--fg);
+  font-family: var(--en);
+  padding: 4px 12px;
+  cursor: pointer;
+}
+
+/* ===== 見出し・共通 ===== */
+h1,
+h2 {
+  font-family: var(--en);
+  font-weight: 600;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: 1.6rem;
+  padding-bottom: 8px;
+  margin: 72px 0 24px;
+  /* border-bottom: 1px solid var(--line); */
+}
+
+h3 {
+  font-size: 1.1rem;
+  margin: 32px 0 8px;
+}
+
+.page-title {
+  font-size: 2.4rem;
+  margin: 64px 0 0;
+}
+
+.lead {
+  color: var(--sub);
+}
+
+ul {
+  padding-left: 1.2em;
+}
+
+li {
+  margin: 4px 0;
+}
+
+/* ===== トップ ===== */
+.hero {
+  min-height: calc(100vh - 60px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero .role {
+  font-family: var(--en);
+  letter-spacing: .3em;
+  color: var(--sub);
+  text-transform: uppercase;
+}
+
+.hero .name {
+  font-family: var(--brush);
+  font-size: clamp(3.2rem, 11vw, 6.5rem);
+  line-height: 1.2;
+  margin: 12px 0;
+  font-weight: 400;
+  letter-spacing: .05em;
+  text-transform: none;
+}
+
+.hero .name-en {
+  font-family: var(--en);
+  letter-spacing: .4em;
+  color: var(--sub);
+}
+
+.hero .tagline {
+  font-size: 1.3rem;
+  margin: 40px 0;
+}
+
+.hero .links {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 28px;
+  border: 1px solid var(--fg);
+  text-decoration: none;
+  font-family: var(--en);
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  font-size: .9rem;
+  transition: .3s;
+}
+
+.btn:hover {
+  background: var(--fg);
+  color: #000;
+}
+
+/* ===== Works ===== */
+.card {
+  border: 1px solid var(--line);
+  background: rgba(0, 0, 0, .35);
+  padding: 32px;
+  margin-top: 32px;
+}
+
+.card h2 {
+  margin: 0 0 8px;
+  border: 0;
+  padding: 0;
+}
+
+.spec {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 6px 16px;
+  margin: 24px 0;
+}
+
+.spec dt {
+  font-family: var(--en);
+  letter-spacing: .1em;
+  color: var(--sub);
+}
+
+.spec dd {
+  margin: 0;
+}
+
+.note {
+  color: var(--sub);
+  font-size: .9rem;
+}
+
+/* ===== About ===== */
+.timeline {
+  list-style: none;
+  padding: 0;
+  border-left: 1px solid var(--line);
+}
+
+.timeline li {
+  padding-left: 20px;
+  margin: 16px 0;
+  position: relative;
+}
+
+.timeline li::before {
+  content: '';
+  position: absolute;
+  left: -4px;
+  top: .8em;
+  width: 7px;
+  height: 7px;
+  background: var(--fg);
+  border-radius: 50%;
+}
+
+.timeline .date {
+  font-family: var(--en);
+  letter-spacing: .1em;
+  color: var(--sub);
+  display: block;
+}
+
+.contact a {
+  display: block;
+  width: fit-content;
+  margin: 6px 0;
+  font-family: var(--en);
+  letter-spacing: .1em;
+}
+
+.hobby-card {
+  margin-top: 50px;
+}
+
+/* ===== フッター ===== */
+.site-footer {
+  margin-top: 96px;
+  padding: 32px 0;
+  border-top: 1px solid var(--line);
+  text-align: center;
+  color: var(--sub);
+  font-family: var(--en);
+  letter-spacing: .15em;
+  font-size: .85rem;
+}
+
+/* ===== スクロールで、ふわっと表示(JSが動くときだけ) ===== */
+.js .reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity .9s, transform .9s;
+}
+
+.js .reveal.in {
+  opacity: 1;
+  transform: none;
+}
+
+/* 画像 */
+
+img {
+  margin:10px;
+  max-width: 40%;
+  max-height: 500px;
+}
+
+.images{
+  display:flex;
+  margin:50px;
+}
+
+/* ===== スマホ ===== */
+@media (max-width: 640px) {
+  .menu-btn {
+    display: block;
+  }
+
+  .nav {
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 0;
+    background: rgba(0, 0, 0, .92);
+    padding: 12px 24px;
+  }
+
+  .nav.open {
+    display: flex;
+  }
+
+  .nav a {
+    padding: 12px 0;
+  }
+
+  .spec {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    padding: 20px;
+  }
+
+  .images {
+    flex-direction: column;
+
+  }
+
+}
+
+

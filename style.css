@@ -302,15 +302,18 @@ li {
 
 /* 画像 */
 
-img {
-  margin:10px;
-  max-width: 40%;
-  max-height: 500px;
+.images{
+  margin-bottom: 100px;
+}
+.app_images {
+  display: flex;
+  
 }
 
-.images{
-  display:flex;
-  margin:50px;
+img {
+  margin: 10px;
+  max-width: 40%;
+  max-height: 500px;
 }
 
 /* ===== スマホ ===== */
@@ -347,11 +350,19 @@ img {
     padding: 20px;
   }
 
-  .images {
-    flex-direction: column;
-
+  .app_image {
+    display: block;
+    width: 100;
+    margin-bottom: 50px;
   }
 
+  .images{
+  margin-bottom: 50px;
 }
-
-
+  img {
+    align-items: center;
+    margin: 10px;
+    max-width: 80%;
+    max-height: 500px;
+  }
+}

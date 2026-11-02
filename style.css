@@ -300,20 +300,60 @@ li {
   transform: none;
 }
 
-/* 画像 */
+/* 動きを減らす設定の人には、ふわっと表示をしない */
+@media (prefers-reduced-motion: reduce) {
+  .js .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 
-.images{
-  margin-bottom: 100px;
-}
-.app_images {
-  display: flex;
-  
+  .btn {
+    transition: none;
+  }
 }
 
+/* ===== 画像 ===== */
 img {
-  margin: 10px;
+  height: auto;
+}
+
+/* About：自己紹介 */
+.profile-text {
+  margin-top: 16px;
+}
+
+.profile-text p + p {
+  margin-top: 1em;
+}
+
+/* Works：スクリーンショット */
+.images {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin: 28px 0 40px;
+}
+
+.app_image {
+  display: block;
+  width: 100%;
+  border: 1px solid var(--line);
+}
+
+.card-links {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* About：趣味の写真 */
+.hobby-card img {
+  display: block;
+  width: auto;
   max-width: 40%;
   max-height: 500px;
+  margin: 10px 0;
 }
 
 /* ===== スマホ ===== */
@@ -350,19 +390,11 @@ img {
     padding: 20px;
   }
 
-  .app_image {
-    display: block;
-    width: 100;
-    margin-bottom: 50px;
+  .images {
+    grid-template-columns: 1fr;
   }
 
-  .images{
-  margin-bottom: 50px;
-}
-  img {
-    align-items: center;
-    margin: 10px;
+  .hobby-card img {
     max-width: 80%;
-    max-height: 500px;
   }
 }

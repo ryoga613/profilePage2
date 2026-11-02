@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="上田凌雅の制作物一覧。Laravel製の書籍レビューアプリ book_shelf など。">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -17,8 +18,8 @@
   <header class="site-header">
     <div class="wrap">
       <a class="brand" href="../index.html">R. UEDA</a>
-      <button class="menu-btn" aria-expanded="false" aria-label="メニュー">MENU</button>
-      <nav class="nav">
+      <button class="menu-btn" aria-expanded="false" aria-controls="site-nav" aria-label="メニュー">MENU</button>
+      <nav class="nav" id="site-nav">
         <a href="../index.html">Home</a>
         <a href="works.html" aria-current="page">Works</a>
         <a href="about.html">About</a>
@@ -55,15 +56,17 @@
       <p>
         この経験を通じて、要件を満たすだけでなく、実装の順序や機能間の関係性まで考慮して設計することの重要性を学びました。今後は、コーディングを始める前に開発手順や優先順位を明確にし、課題を一つずつ整理しながら、効率的で保守性の高い開発を目指していきます。
       </p>
-      <p style="margin-top:28px">
       <div class="images">
-        <img src="../images/bookShelf1.png" alt="本レビューアプリ" class="app_image">
-        <img src="../images/bookShelf2.png" alt="本レビューアプリ" class="app_image">
+        <img src="../images/bookShelf1.png" alt="書籍一覧画面（キーワード・ジャンル検索と書籍カード一覧）" class="app_image"
+          width="3420" height="1902" loading="lazy">
+        <img src="../images/bookShelf2.png" alt="評価ランキングTOP10画面（平均評価とレビュー件数）" class="app_image"
+          width="3420" height="1897" loading="lazy">
       </div>
 
-      <a class="btn" href="https://github.com/ryoga613/bookshelf_app">GitHub</a>
-      <a class="btn" rel="noopener noreferrer">Demo</a>
-      </p>
+      <div class="card-links">
+        <a class="btn" href="https://github.com/ryoga613/bookshelf_app">GitHub</a>
+        <a class="btn" rel="noopener noreferrer">Demo</a>
+      </div>
     </article>
   </main>
   <footer class="site-footer">&copy; 2026 Ueda Ryoga</footer>

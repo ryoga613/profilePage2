@@ -398,3 +398,35 @@ img {
     max-width: 80%;
   }
 }
+/* ===== 追加分 ===== */
+.hero .status {
+  margin-top: 8px;
+  color: var(--sub);
+  letter-spacing: .1em;
+}
+
+.card ul {
+  margin: 12px 0;
+}
+
+.card code {
+  font-size: .9em;
+  padding: 0 4px;
+  background: rgba(255, 255, 255, .1);
+}
+
+.badge {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 0 10px;
+  border: 1px solid var(--sub);
+  color: var(--sub);
+  font-family: var(--mincho);
+  font-size: .8rem;
+  letter-spacing: .05em;
+  vertical-align: middle;
+}
+
+.skills {
+  margin-top: 0;
+}

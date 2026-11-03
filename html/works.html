@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="上田凌雅の制作物一覧。Laravel製の書籍レビューアプリ book_shelf など。">
+  <meta name="description" content="上田凌雅の制作物一覧。Laravel製の書籍レビューアプリ book_shelf、勤怠管理アプリなど。">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -71,8 +71,42 @@
     </article>
 
     <article class="card reveal">
-      <h2>勤怠管理アプリ <span class="badge">開発中</span></h2>
-      <p>現在開発中です。完成後に詳細を掲載します。</p>
+      <h2>勤怠管理アプリ</h2>
+      <p>出勤・退勤・休憩の打刻から、勤怠の修正申請・承認、月次レポートまでを行えるWebアプリ。外部システムから勤怠を操作できるREST APIも備えています。</p>
+      <dl class="spec">
+        <dt>機能</dt>
+        <dd>打刻（出勤・退勤・休憩） / 勤怠一覧・詳細 / 修正申請・承認 / 月次レポート / スタッフ別勤怠のCSV出力 / REST API</dd>
+        <dt>技術</dt>
+        <dd>PHP 8.2、Laravel 10、MySQL、Laravel Sanctum、PHPUnit、Docker（Laravel Sail）</dd>
+        <dt>担当</dt>
+        <dd>バックエンドの実装</dd>
+      </dl>
+
+      <h3>工夫した点</h3>
+      <p>
+        一般ユーザーと管理者という2つの立場があるため、「誰が・どの勤怠を・どの状態のときに操作できるか」を先に整理し、実際の運用で起こり得る矛盾や不正な操作を防ぐことを意識しました。
+      </p>
+      <ul>
+        <li>1ユーザー1日1件になるよう、<code>attendances</code> テーブルに（user_id, work_date）の複合ユニーク制約を設定</li>
+        <li>修正申請が承認待ちの間は重ねて申請できず、管理者も直接修正できないようにして、申請内容と実データの食い違いを防止</li>
+        <li>休憩を削除しても過去の修正申請の記録が残るよう、外部キーを <code>nullOnDelete</code> に設定</li>
+        <li>APIはSanctumのトークン認証とし、Policyで「一般ユーザーは本人分のみ、管理者は全員分」と閲覧・操作範囲を制御。401・403・404はJSONで統一して返却</li>
+        <li>月次レポートでは直近6か月の勤務時間・残業時間の推移と、遅刻・早退・長時間労働の回数を集計。退勤済みの勤怠だけを合計・平均に含めるようにしました</li>
+        <li>退勤し忘れた過去の勤怠を打刻画面で知らせる機能を追加</li>
+        <li>認可の境界（本人・他人・管理者）や集計結果を、Factoryで作ったデータを使ったFeatureテストで検証</li>
+      </ul>
+
+      <h3>苦労した点・学び</h3>
+      <p>
+        機能が一通り動いた後も、タイムゾーンのずれや、不正な日付パラメータで500エラーになる問題、APIの閲覧範囲の制限漏れなど、実際に使う場面を想定して見直すことで多くの不具合が見つかりました。機能ごとにブランチを切り、Pull Requestで1つずつ修正を重ねる中で、「動く」だけでなく「想定外の使われ方をしても壊れない」ことまで考えて実装する大切さを学びました。
+      </p>
+      <p>
+        また、開発の途中からはAIコーディングツールのClaude Codeを取り入れて実装を進めました。開発のスピードは大きく上がりましたが、生成されたコードをそのまま使うと、なぜその書き方なのかを自分で説明できない部分が残ることに気づきました。そこで、提案されたコードは一行ずつ読んで意図を確認し、分からない処理はLaravelの仕組みまで遡って調べてから取り込むようにしました。AIは作業を任せきりにする道具ではなく、コードの本質を理解するための相棒としてうまく付き合っていく必要がある、というのが今回の大きな学びです。
+      </p>
+
+      <div class="card-links">
+        <a class="btn" href="https://github.com/ryoga613/Attendance--apprication">GitHub</a>
+      </div>
     </article>
   </main>
   <footer class="site-footer">&copy; 2026 Ueda Ryoga</footer>

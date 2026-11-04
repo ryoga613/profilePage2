@@ -414,6 +414,9 @@ img {
 /* ===== 追加分 ===== */
 .hero .status {
   margin-top: 8px;
+  margin-bottom: 24px;
+  font-size: 1.2rem;
+  font-weight: 600;
   color: var(--sub);
   letter-spacing: .1em;
 }

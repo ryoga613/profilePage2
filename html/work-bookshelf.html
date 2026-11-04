@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="本のレビューを投稿し、コメント・いいねで交流できるWebアプリ">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&family=Shippori+Mincho:wght@400;600&family=Yuji+Boku&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <title>book_shelf | Works | 上田 凌雅</title>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="../index.html">R. UEDA</a>
+      <button class="menu-btn" aria-expanded="false" aria-controls="site-nav" aria-label="メニュー">MENU</button>
+      <nav class="nav" id="site-nav">
+        <a href="../index.html#home">Home</a>
+        <a href="../index.html#works" aria-current="page">Works</a>
+        <a href="../index.html#skills">Skills</a>
+        <a href="../index.html#about">About</a>
+        <a href="../index.html#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <p class="back-link reveal"><a href="../index.html#works">← Works一覧へ戻る</a></p>
+    <article class="card reveal">
+      <h2>book_shelf</h2>
+      <p>本のレビューを投稿し、コメント・いいねで交流できるWebアプリ</p>
+      <dl class="spec">
+        <dt>機能</dt>
+        <dd>レビュー投稿 / コメント / いいね / 一覧・集計表示</dd>
+        <dt>技術</dt>
+        <dd>PHP、Laravel、MySQL、phpMyAdmin、Docker</dd>
+        <dt>担当</dt>
+        <dd>バックエンドの実装</dd>
+      </dl>
+      <p class="note">オンラインスクールの課題として開発。フロントエンド（resources）は課題で提供されたものを使用しています。</p>
+
+      <h3>工夫した点</h3>
+      <p>
+        要件定義書をもとに、初めてシステム設計から取り組みました。画面を作る前に利用者・利用シーン・権限を整理し、実際の運用で起こり得る重複登録や誤操作を想定して、次のように実装しました。
+      </p>
+      <ul>
+        <li>同じユーザーが同じレビューに2回いいねできないよう、<code>review_likes</code> テーブルに（review_id, user_id）の複合ユニーク制約を設定</li>
+        <li>レビューの編集・削除は投稿者本人だけができるよう、Policyで権限を制御</li>
+        <li>評価は1〜5の整数、コメントは1000文字以内など、FormRequestで入力値を検証</li>
+        <li>主要なコントローラーごとにPHPUnitのFeatureテストを作成</li>
+      </ul>
+
+      <h3>苦労した点・学び</h3>
+      <p>
+        当初は機能を実装することに意識が向き、機能間の依存関係や実装の順序を整理しきれていなかったため、開発中に作業順で迷うことがありました。この経験から、コーディングを始める前に開発手順と優先順位を明確にすることの重要性を学びました。
+      </p>
+      <div class="images">
+        <img src="../images/bookShelf1.png" alt="書籍一覧画面（キーワード・ジャンル検索と書籍カード一覧）" class="app_image"
+          width="3420" height="1902" loading="lazy">
+        <img src="../images/bookShelf2.png" alt="評価ランキングTOP10画面（平均評価とレビュー件数）" class="app_image"
+          width="3420" height="1897" loading="lazy">
+      </div>
+
+      <div class="card-links">
+        <a class="btn" href="https://github.com/ryoga613/bookshelf_app">GitHub</a>
+        <a class="btn" rel="noopener noreferrer">Demo</a>
+      </div>
+    </article>
+    <p class="back-link reveal"><a href="../index.html#works">← Works一覧へ戻る</a></p>
+  </main>
+  <footer class="site-footer">&copy; 2026 Ueda Ryoga</footer>
+  <script src="../script.js" defer></script>
+</body>
+
+</html>

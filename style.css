@@ -1,21 +1,17 @@
 /* ===== 色・フォント ===== */
 :root {
-  --fg: #e8e8e8;
-  --sub: #a0a0a0;
-  --line: #333;
+  --fg: #222;
+  --sub: #666;
+  --line: #ddd;
   --mincho: 'Shippori Mincho', 'Noto Serif JP', 'Hiragino Mincho ProN', serif;
   --brush: 'Yuji Boku', 'Shippori Mincho', serif;
   /* 名前用の筆文字 */
   --en: 'Oswald', 'Arial Narrow', sans-serif;
   /* 英字 */
-
-  /* ★ 背景写真に差し替えるときは、下の行を次のように変えます */
-  --photo: url('images/bg.jpg');
-  /* --photo: url('images/bg2.jpg'); */
-  /* --photo: url('images/bg3.jpg'); */
-  /* --photo: url('images/bg4.jpg'); */
-
-  /* --photo: linear-gradient(135deg, #3c3c3c, #0b0b0b 70%); */
+  --header-bg: #1f3a5f;
+  /* ヘッダーの色（藍色） */
+  --header-fg: #fff;
+  --header-sub: rgba(255, 255, 255, .7);
 }
 
 * {
@@ -28,11 +24,7 @@ body {
   color: var(--fg);
   line-height: 1.9;
   min-height: 100vh;
-  /* 写真の上に暗い膜を重ねて、文字を読みやすくする */
-  background-image: linear-gradient(rgba(0, 0, 0, .55), rgba(0, 0, 0, .8)), var(--photo);
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
+  background: #fff;
 }
 
 a {
@@ -50,9 +42,8 @@ a {
   position: sticky;
   top: 0;
   z-index: 10;
-  background: rgba(0, 0, 0, .55);
-  backdrop-filter: blur(6px);
-  border-bottom: 1px solid var(--line);
+  background: var(--header-bg);
+  color: var(--header-fg);
 }
 
 .site-header .wrap {
@@ -79,22 +70,22 @@ a {
 
 .nav a {
   text-decoration: none;
-  color: var(--sub);
+  color: var(--header-sub);
   padding: 4px 0;
   border-bottom: 1px solid transparent;
 }
 
 .nav a:hover,
 .nav a[aria-current="page"] {
-  color: var(--fg);
-  border-bottom-color: var(--fg);
+  color: var(--header-fg);
+  border-bottom-color: var(--header-fg);
 }
 
 .menu-btn {
   display: none;
   background: none;
-  border: 1px solid var(--line);
-  color: var(--fg);
+  border: 1px solid var(--header-sub);
+  color: var(--header-fg);
   font-family: var(--en);
   padding: 4px 12px;
   cursor: pointer;
@@ -142,8 +133,24 @@ li {
 .hero {
   min-height: calc(100vh - 60px);
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  align-items: center;
+  /* 暗い背景写真の上なので、Home の中だけ文字色を白系にする */
+  --fg: #fff;
+  --sub: rgba(255, 255, 255, .75);
+  color: var(--fg);
+  /* 写真の上に薄く暗い膜を重ねて、文字を読みやすくする */
+  background-color: #1a1a1a;
+  background-image: linear-gradient(rgba(0, 0, 0, .25), rgba(0, 0, 0, .25)), url('images/bg3.jpg');
+  background-size: cover;
+  background-position: left center;
+}
+
+.hero > .wrap {
+  width: 100%;
+}
+
+.hero .btn:hover {
+  color: #222;
 }
 
 .hero .role {
@@ -171,7 +178,13 @@ li {
 
 .hero .tagline {
   font-size: 1.3rem;
-  margin: 40px 0;
+  margin: 40px 0 12px;
+}
+
+.hero .appeal {
+  max-width: 36em;
+  margin-bottom: 40px;
+  color: var(--sub);
 }
 
 .hero .links {
@@ -194,13 +207,13 @@ li {
 
 .btn:hover {
   background: var(--fg);
-  color: #000;
+  color: #fff;
 }
 
 /* ===== Works ===== */
 .card {
   border: 1px solid var(--line);
-  background: rgba(0, 0, 0, .35);
+  background: rgba(255, 255, 255, .7);
   padding: 32px;
   margin-top: 32px;
 }
@@ -370,7 +383,7 @@ img {
     right: 0;
     flex-direction: column;
     gap: 0;
-    background: rgba(0, 0, 0, .92);
+    background: var(--header-bg);
     padding: 12px 24px;
   }
 
@@ -412,7 +425,7 @@ img {
 .card code {
   font-size: .9em;
   padding: 0 4px;
-  background: rgba(255, 255, 255, .1);
+  background: rgba(0, 0, 0, .06);
 }
 
 .badge {
@@ -429,4 +442,113 @@ img {
 
 .skills {
   margin-top: 0;
+}
+
+.lang-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+}
+
+.lang {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.lang img {
+  width: 20px;
+  height: 20px;
+}
+
+/* Works：一覧のリンクカード */
+.work-list {
+  list-style: none;
+  padding: 0;
+}
+
+.work-link {
+  display: block;
+  text-decoration: none;
+  transition: border-color .3s, transform .3s;
+}
+
+.work-link:hover {
+  border-color: var(--fg);
+  transform: translateY(-2px);
+}
+
+.work-tech {
+  margin-top: 8px;
+  font-family: var(--en);
+  letter-spacing: .1em;
+  font-size: .85rem;
+  color: var(--sub);
+}
+
+.work-more {
+  display: inline-block;
+  margin-top: 16px;
+  font-size: .9rem;
+  border-bottom: 1px solid var(--fg);
+}
+
+.back-link {
+  margin-top: 32px;
+}
+
+.back-link a {
+  color: var(--sub);
+  font-size: .9rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .work-link {
+    transition: none;
+  }
+
+  .work-link:hover {
+    transform: none;
+  }
+}
+
+/* ===== LP（1ページ構成） ===== */
+section[id] {
+  /* ヘッダーの高さ分ずらして、見出しが隠れないようにする */
+  scroll-margin-top: 60px;
+}
+
+.section {
+  padding-top: 96px;
+}
+
+.section-title {
+  font-size: 2.4rem;
+  margin: 0 0 32px;
+}
+
+.sub-title {
+  font-family: var(--en);
+  font-weight: 600;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  font-size: 1.3rem;
+  margin: 56px 0 16px;
+}
+
+.section-title + .reveal > .sub-title:first-child {
+  margin-top: 0;
+}
+
+.card h3 {
+  margin: 0 0 8px;
+}
+
+.hobby-card h4 {
+  font-size: 1.05rem;
+  margin: 16px 0 4px;
+}
+
+.skills + ul {
+  margin-top: 16px;
 }

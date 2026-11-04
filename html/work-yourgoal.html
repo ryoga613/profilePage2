@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="目標の宣言・進捗・達成を共有し、挑戦を応援し合えるSNS型アプリ">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&family=Shippori+Mincho:wght@400;600&family=Yuji+Boku&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <title>Your Goal | Works | 上田 凌雅</title>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="../index.html">R. UEDA</a>
+      <button class="menu-btn" aria-expanded="false" aria-controls="site-nav" aria-label="メニュー">MENU</button>
+      <nav class="nav" id="site-nav">
+        <a href="../index.html#home">Home</a>
+        <a href="../index.html#works" aria-current="page">Works</a>
+        <a href="../index.html#skills">Skills</a>
+        <a href="../index.html#about">About</a>
+        <a href="../index.html#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <p class="back-link reveal"><a href="../index.html#works">← Works一覧へ戻る</a></p>
+    <article class="card reveal">
+      <h2>Your Goal<span class="badge">開発中</span></h2>
+      <p>目標を宣言し、進捗や達成を報告しながら、いいね・コメントで互いの挑戦を応援し合えるSNS型のWebアプリ。</p>
+      <dl class="spec">
+        <dt>機能</dt>
+        <dd>目標宣言 / 進捗報告 / 達成報告 / 学び・知識の共有 / タイムライン（おすすめ・新着） / いいね・コメント / 管理者によるユーザー・投稿・コメント管理</dd>
+        <dt>技術</dt>
+        <dd>PHP 8.3、Laravel 13、Laravel Fortify、MySQL、PHPUnit、Docker（Laravel Sail）</dd>
+        <dt>担当</dt>
+        <dd>設計・バックエンド、フロントエンドの実装</dd>
+      </dl>
+
+      <h3>開発で意識している点</h3>
+      <p>
+        「人が自ら行動し、挑戦を続けられる仕組みを作りたい」という思いから、自分で企画したアプリです。これまでの2作品で得た学びを活かし、「作る前に考える」「小さく積み上げる」「使う人の目線で守る」ことを意識して開発しています。
+      </p>
+      <ul>
+        <li><strong>作る前に全体像を固める：</strong>book_shelfで作業順に迷った反省から、設計書をもとに全ルートを先に定義し、コントローラーを空のメソッドで用意してから実装に入るようにしました</li>
+        <li><strong>機能ごとに小さく積み上げる：</strong>1つの機能ごとにブランチを切り、Pull Requestで変更内容を説明できる単位にまとめてからマージしています</li>
+        <li><strong>データの矛盾を仕組みで防ぐ：</strong>同じ投稿への二重いいねは複合ユニーク制約で、達成報告と目標の「達成済み」への変更はトランザクションで一括処理するなど、誤操作が起きても壊れない作りを意識しています</li>
+        <li><strong>先にテストできる土台を作る：</strong>実装の前にFactoryとSeederを整え、管理者機能などはFeatureテストで動作を確認しています</li>
+        <li><strong>読みやすく、無駄のないコードに：</strong>Pintでコードの書き方を統一し、タイムラインではコメント数の取得で起きていたN+1問題を解消しました</li>
+        <li><strong>AIは理解して使う：</strong>Claude Codeを活用しつつ、提案されたコードは意図を確認し、自分で説明できる状態にしてから取り込んでいます</li>
+      </ul>
+
+      <div class="card-links">
+        <a class="btn" href="https://github.com/ryoga613/YourGoal">GitHub</a>
+      </div>
+    </article>
+    <p class="back-link reveal"><a href="../index.html#works">← Works一覧へ戻る</a></p>
+  </main>
+  <footer class="site-footer">&copy; 2026 Ueda Ryoga</footer>
+  <script src="../script.js" defer></script>
+</body>
+
+</html>

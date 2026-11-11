@@ -19,6 +19,19 @@ if (btn && nav) {
     const open = nav.classList.toggle('open');
     btn.setAttribute('aria-expanded', open);
   });
+
+  // Escキー、またはメニューの外をタップしたら閉じる
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && nav.classList.contains('open')) {
+      closeMenu();
+      btn.focus();
+    }
+  });
+  document.addEventListener('click', (e) => {
+    if (nav.classList.contains('open') && !nav.contains(e.target) && !btn.contains(e.target)) {
+      closeMenu();
+    }
+  });
 }
 
 // 3. ページ内リンクを、なめらかにスクロールさせる

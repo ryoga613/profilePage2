@@ -76,7 +76,7 @@ a {
 }
 
 .nav a:hover,
-.nav a[aria-current="page"] {
+.nav a[aria-current] {
   color: var(--header-fg);
   border-bottom-color: var(--header-fg);
 }
@@ -554,4 +554,18 @@ section[id] {
 
 .skills + ul {
   margin-top: 16px;
+}
+
+/* Works：作品ページ間の移動 */
+.work-pager {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 32px;
+  font-size: .95rem;
+}
+
+.work-pager a {
+  text-decoration: none;
+  border-bottom: 1px solid var(--fg);
 }

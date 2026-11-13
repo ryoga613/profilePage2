@@ -44,22 +44,23 @@
         <dt>機能</dt>
         <dd>目標宣言 / 進捗報告 / 達成報告 / 学び・知識の共有 / タイムライン（おすすめ・新着） / いいね・コメント / 管理者によるユーザー・投稿・コメント管理</dd>
         <dt>技術</dt>
-        <dd>PHP 8.3、Laravel 13、Laravel Fortify、MySQL、PHPUnit、Docker（Laravel Sail）</dd>
+        <dd>PHP 8.3、Laravel 13、Laravel Fortify、MySQL、PHPUnit、Laravel Debugbar、Docker（Laravel Sail）</dd>
         <dt>担当</dt>
         <dd>設計・バックエンド、フロントエンドの実装</dd>
       </dl>
 
       <h3>開発で意識している点</h3>
       <p>
-        「人が自ら行動し、挑戦を続けられる仕組みを作りたい」という思いから、自分で企画したアプリです。これまでの2作品で得た学びを活かし、「作る前に考える」「小さく積み上げる」「使う人の目線で守る」ことを意識して開発しています。
+        「人が自ら行動し、挑戦を続けられる仕組みを作りたい」という思いから、自分で企画したアプリです。これまでの2作品で得た学びを活かし、「作る前に考える」「小さく積み上げる」「使う人の目線で守る」ことを意識して開発しています。また、自分以外の人が読む・引き継ぐことを前提に、チーム開発や運用を見据えたコードを書くことを特に大切にしています。
       </p>
       <ul>
         <li><strong>作る前に全体像を固める：</strong>book_shelfで作業順に迷った反省から、設計書をもとに全ルートを先に定義し、コントローラーを空のメソッドで用意してから実装に入るようにしました</li>
         <li><strong>機能ごとに小さく積み上げる：</strong>1つの機能ごとにブランチを切り、Pull Requestで変更内容を説明できる単位にまとめてからマージしています</li>
         <li><strong>データの矛盾を仕組みで防ぐ：</strong>同じ投稿への二重いいねは複合ユニーク制約で、達成報告と目標の「達成済み」への変更はトランザクションで一括処理するなど、誤操作が起きても壊れない作りを意識しています</li>
         <li><strong>先にテストできる土台を作る：</strong>実装の前にFactoryとSeederを整え、管理者機能などはFeatureテストで動作を確認しています</li>
-        <li><strong>読みやすく、無駄のないコードに：</strong>Pintでコードの書き方を統一し、タイムラインではコメント数の取得で起きていたN+1問題を解消しました</li>
-        <li><strong>AIは理解して使う：</strong>Claude Codeを活用しつつ、提案されたコードは意図を確認し、自分で説明できる状態にしてから取り込んでいます</li>
+        <li><strong>運用を見据えてクエリ問題を残さない：</strong>データが増えても重くならないよう、Laravel Debugbarで発行されるクエリを確認しながら実装しています。タイムラインではコメント数の取得で起きていたN+1問題を、Eager Loadingで解消しました</li>
+        <li><strong>チームで読みやすいコードにする：</strong>Pintで書き方を統一したうえで、処理の意図が伝わりにくい箇所には「なぜこう書いたか」をコメントでこまめに残し、他の人が読んでも迷わない状態を意識しています</li>
+        <li><strong>AIのコードも自分の言葉で説明できるようにする：</strong>Claude Codeを活用しつつ、提案されたコードはそのまま使わず、意図や動きを確認して自分で説明できる状態にしてから取り込んでいます</li>
       </ul>
 
       <div class="card-links">
@@ -67,8 +68,8 @@
       </div>
     </article>
     <nav class="work-pager reveal" aria-label="作品間の移動">
-      <a class="pager-prev" href="work-attendance.html">← 勤怠管理アプリ</a>
       <span></span>
+      <a class="pager-next" href="work-attendance.html">勤怠管理アプリ →</a>
     </nav>
     <p class="back-link reveal"><a href="../index.html#works">← Works一覧へ戻る</a></p>
   </main>

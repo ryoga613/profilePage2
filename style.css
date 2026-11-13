@@ -354,6 +354,15 @@ img {
   border: 1px solid var(--line);
 }
 
+.screen-group h4 {
+  font-size: 1rem;
+  margin: 20px 0 0;
+}
+
+.screen-group .images {
+  margin: 12px 0 24px;
+}
+
 .card-links {
   display: flex;
   gap: 16px;
